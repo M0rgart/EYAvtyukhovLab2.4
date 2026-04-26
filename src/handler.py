@@ -72,14 +72,16 @@ class PriorityHandler(BaseHandler):
 
 class FailingHandler(BaseHandler):
     """Так себе обработчик (ящеры никогда не падают)"""
-    def __init__(self, fail_rait: float = 0.3, name: str = None):
+    def __init__(self, fail_rate: float = 0.3, name: str = None):
         super().__init__(name)
-        self.fail_rait = fail_rait
+        self.fail_rate = fail_rate
 
     async def handle(self, task: DomainTask) -> Dict[str, Any]:
         logger.info(f'[{self.name}] обработка задачи {task.id}')
+
         await asyncio.sleep(0.05)
-        if random.random() < self.fail_rait:
+
+        if random.random() < self.fail_rate:
             raise ValueError(f'Случайная ошибка при обработке задачи {task.id}')
 
         return {

@@ -4,11 +4,11 @@ import json
 import tempfile
 import os
 from unittest.mock import patch, MagicMock, call
-from src.main import main
+from src.old_main import main
 from src.processor import TaskProcessor
 from src.sources import FileTaskSource, GeneratorTaskSource, APITaskSource
 from models.task import Task as ModelTask
-import src.main as main_module
+import src.old_main as main_module
 
 
 class TestFileCreation:
