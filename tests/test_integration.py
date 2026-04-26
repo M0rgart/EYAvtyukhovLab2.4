@@ -47,12 +47,12 @@ class TestFileCreation:
 class TestMainFunction:
     """Интеграционные тесты для функции main"""
 
-    @patch('src.main.create_file')
-    @patch('src.main.TaskProcessor')
-    @patch('src.main.FileTaskSource')
-    @patch('src.main.GeneratorTaskSource')
-    @patch('src.main.APITaskSource')
-    @patch('src.main.setup_logging')
+    @patch('src.old_main.create_file')
+    @patch('src.old_main.TaskProcessor')
+    @patch('src.old_main.FileTaskSource')
+    @patch('src.old_main.GeneratorTaskSource')
+    @patch('src.old_main.APITaskSource')
+    @patch('src.old_main.setup_logging')
     @patch('builtins.print')
     def test_main_successful_execution(
             self, mock_print, mock_setup, mock_api, mock_gen, mock_file,
@@ -119,12 +119,12 @@ class TestMainFunction:
         assert mock_processor_integration.add_source.call_count == 1
         mock_processor_integration.process_all.assert_called_once()
 
-    @patch('src.main.create_file')
-    @patch('src.main.TaskProcessor')
-    @patch('src.main.FileTaskSource')
-    @patch('src.main.GeneratorTaskSource')
-    @patch('src.main.APITaskSource')
-    @patch('src.main.setup_logging')
+    @patch('src.old_main.create_file')
+    @patch('src.old_main.TaskProcessor')
+    @patch('src.old_main.FileTaskSource')
+    @patch('src.old_main.GeneratorTaskSource')
+    @patch('src.old_main.APITaskSource')
+    @patch('src.old_main.setup_logging')
     @patch('builtins.print')
     def test_main_with_failed_source_addition(
             self, mock_print, mock_setup, mock_api, mock_gen, mock_file,
